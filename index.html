@@ -1,0 +1,670 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pet-Friendly City Campaign - Making Cities Paw-some! 🐾✨</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+  /* Reset & base */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f5f7fa;
+    color: #222;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    background: #2a9d8f;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(42,157,143,0.7);
+  }
+
+  nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+  }
+
+  .logo {
+    font-weight: 900;
+    font-size: 1.85rem;
+    letter-spacing: 2px;
+    font-style: italic;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav ul li {
+    font-weight: 700;
+    position: relative;
+  }
+
+  nav ul li a {
+    color: white;
+    padding: 0.5rem 0.3rem;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  nav ul li a:hover,
+  nav ul li a.active {
+    color: #e9c46a;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    min-height: 90vh;
+    background:
+      linear-gradient(to bottom right, rgba(42,157,143,0.85), rgba(233,196,106,0.85)),
+      url('https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2rem;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.25);
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1.2rem;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.65);
+    letter-spacing: 3px;
+  }
+
+  .hero .cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    background: #f4a261;
+    border: none;
+    padding: 16px 38px;
+    border-radius: 40px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1.15rem;
+    color: #2a2a2a;
+    box-shadow: 0 9px 20px rgba(244,162,97,0.35);
+    transition: all 0.4s ease;
+    user-select: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .btn:hover {
+    background: #e76f51;
+    box-shadow: 0 12px 28px rgba(231,111,81,0.55);
+    transform: translateY(-5px);
+    color: white;
+  }
+
+  /* Section styling */
+  section {
+    max-width: 1100px;
+    margin: 3.5rem auto 5rem;
+    padding: 0 1.2rem;
+  }
+
+  section h2 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #2a9d8f;
+    position: relative;
+    letter-spacing: 0.06em;
+  }
+
+  section h2::after {
+    content: '🐾';
+    font-size: 2.3rem;
+    position: absolute;
+    right: -2rem;
+    top: 0.25rem;
+    animation: bounce 2.3s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Volunteer Section */
+  .volunteer form {
+    max-width: 520px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 2.4rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+  }
+
+  .volunteer form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #264653;
+  }
+
+  .volunteer form input[type="text"],
+  .volunteer form select {
+    width: 100%;
+    padding: 0.65rem 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 9px;
+    border: 2.2px solid #a8dadc;
+    font-size: 1.05rem;
+    color: #1d3557;
+    transition: border-color 0.3s;
+    outline-offset: 3px;
+    font-weight: 600;
+  }
+
+  .volunteer form input[type="text"]:focus,
+  .volunteer form select:focus {
+    border-color: #2a9d8f;
+  }
+
+  .volunteer form button {
+    width: 100%;
+    padding: 1.15rem;
+    background: #2a9d8f;
+    color: white;
+    font-weight: 900;
+    border: none;
+    border-radius: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 10px 30px rgba(42,157,143,0.5);
+  }
+
+  .volunteer form button:hover {
+    background: #1d705b;
+    box-shadow: 0 15px 38px rgba(29,112,91,0.65);
+    transform: translateY(-3px);
+  }
+
+  /* Impact Stories Section */
+  .impact-stories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    gap: 2.75rem;
+  }
+
+  .story-card {
+    background: white;
+    padding: 1.4rem;
+    border-radius: 18px;
+    box-shadow: 0 12px 25px rgba(38,70,83,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation-fill-mode: forwards;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .story-card:hover {
+    box-shadow: 0 20px 40px rgba(38,70,83,0.2);
+  }
+
+  .story-card img {
+    border-radius: 16px;
+    box-shadow: 0 5px 14px rgba(0,0,0,0.12);
+    width: 100%;
+    object-fit: cover;
+    max-height: 210px;
+    transition: transform 0.3s ease;
+  }
+
+  .story-card img:hover {
+    transform: scale(1.07);
+  }
+
+  .story-card p {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #264653;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* Animate story cards fading in */
+  .story-card.visible {
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Pet Adoption Carousel */
+  .carousel {
+    max-width: 900px;
+    margin: 4rem auto 7rem;
+    position: relative;
+    text-align: center;
+  }
+
+  .carousel h2 {
+    margin-bottom: 2rem;
+    color: #e76f51;
+    font-weight: 900;
+    font-size: 2.8rem;
+    letter-spacing: 0.07em;
+  }
+
+  .carousel-container {
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .carousel-card {
+    min-width: 280px;
+    background: white;
+    border-radius: 20px;
+    margin-right: 1.75rem;
+    box-shadow: 0 15px 36px rgba(0,0,0,0.14);
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .carousel-card:hover,
+  .carousel-card:focus {
+    transform: scale(1.07);
+    box-shadow: 0 25px 58px rgba(0,0,0,0.25);
+    outline: none;
+  }
+
+  .carousel-card img {
+    border-radius: 20px 20px 0 0;
+    height: 190px;
+    object-fit: cover;
+    user-select: none;
+  }
+
+  .carousel-card .card-content {
+    padding: 1.1rem 1.3rem 1.6rem;
+  }
+
+  .carousel-card .card-content h3 {
+    margin-bottom: 0.7rem;
+    color: #2a9d8f;
+    font-weight: 900;
+    font-size: 1.25rem;
+    letter-spacing: 0.03em;
+  }
+
+  .carousel-card .card-content p {
+    font-size: 1rem;
+    color: #555;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  /* Carousel nav buttons */
+  .carousel-btn {
+    position: absolute;
+    top: 48%;
+    transform: translateY(-50%);
+    background: #2a9d8f;
+    border: none;
+    color: white;
+    font-size: 2.4rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(42,157,143,0.6);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    user-select: none;
+  }
+
+  .carousel-btn:hover,
+  .carousel-btn:focus {
+    background: #1d3557;
+    box-shadow: 0 12px 30px rgba(29,53,87,0.9);
+    outline: none;
+  }
+
+  .carousel-btn.prev {
+    left: -2.5rem;
+  }
+
+  .carousel-btn.next {
+    right: -2.5rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero h1 {
+      font-size: 2.7rem;
+    }
+    .hero .cta-buttons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    nav ul {
+      gap: 1.2rem;
+    }
+    .carousel-btn.prev {
+      left: -1.2rem;
+    }
+    .carousel-btn.next {
+      right: -1.2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .volunteer form input[type="text"],
+    .volunteer form select,
+    .volunteer form button {
+      width: 100%;
+    }
+    nav ul {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav ul li a {
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  /* Footer */
+  footer {
+    background: #264653;
+    color: #f4f4f4;
+    text-align: center;
+    padding: 1.8rem 1rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.06em;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">🐶 Pet-Friendly City</div>
+    <ul>
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#volunteer" class="nav-link">Volunteer</a></li>
+      <li><a href="#impact" class="nav-link">Impact Stories</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero" id="home" aria-label="Hero Section">
+    <h1>Making Cities Paw-some! 🐾✨</h1>
+    <div class="cta-buttons" role="group" aria-label="Call to action buttons">
+      <button class="btn" id="joinBtn">Join the Movement</button>
+      <button class="btn" id="volunteerBtn">Volunteer Now</button>
+      <button class="btn" id="learnBtn">Learn More</button>
+    </div>
+  </section>
+
+  <section id="about" aria-label="About Section" style="max-width: 900px; margin: 3rem auto;">
+    <h2>About the Campaign</h2>
+    <p style="font-size:1.2rem; color:#555; margin-top: 0.8rem; text-align:center;">
+      The Pet-Friendly City Campaign aims to make urban spaces welcoming places for our furry friends 🐶🐱.
+      We create safer parks, promote pet adoption, and engage communities to volunteer and support this cause.
+    </p>
+  </section>
+
+  <section class="volunteer" id="volunteer" aria-label="Volunteer Sign Up Section">
+    <h2>Volunteer Sign Up</h2>
+    <form id="volunteerForm" novalidate>
+      <label for="name">Name *</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required minlength="2" />
+      <label for="city">City *</label>
+      <input type="text" id="city" name="city" placeholder="Your city" required minlength="2" />
+      <label for="role">Role Preference *</label>
+      <select id="role" name="role" required>
+        <option value="" disabled selected>Select your preferred role</option>
+        <option value="dog-walker">Dog Walker</option>
+        <option value="event-organizer">Event Organizer</option>
+        <option value="foster">Foster</option>
+        <option value="fundraiser">Fundraiser</option>
+      </select>
+      <button type="submit">Sign Up</button>
+      <p id="formMessage" style="margin-top:1rem; font-weight:700;"></p>
+    </form>
+  </section>
+
+  <section class="impact" id="impact" aria-label="Impact Stories Section">
+    <h2>Impact Stories</h2>
+    <div class="impact-stories" id="storiesContainer">
+      <article class="story-card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=350&q=80" alt="Bella the dog smiling" />
+        <p>🐶 Bella found her forever home thanks to our volunteers' dedication!</p>
+      </article>
+      <article class="story-card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=350&q=80" alt="Charlie the dog playing in the park" />
+        <p>🐾 Charlie was rescued and now brings joy to his loving family every day!</p>
+      </article>
+      <article class="story-card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=350&q=80" alt="Happy cat" />
+        <p>🐱 Luna the cat was adopted at one of our community events - a true success story!</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="carousel" aria-label="Pet adoption carousel" id="carousel">
+    <h2>🐕 Pet Adoption Carousel</h2>
+    <div class="carousel-container">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-card" tabindex="0" role="button" aria-pressed="false" aria-label="Meet Rex, a playful shepherd mix">
+          <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=400&q=80" alt="Rex the shepherd mix dog" />
+          <div class="card-content">
+            <h3>Rex</h3>
+            <p>Playful shepherd mix looking for a loving family. Loves long walks and belly rubs!</p>
+          </div>
+        </div>
+        <div class="carousel-card" tabindex="0" role="button" aria-pressed="false" aria-label="Meet Daisy, the cheerful golden retriever">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80" alt="Daisy the golden retriever" />
+          <div class="card-content">
+            <h3>Daisy</h3>
+            <p>Cheerful golden retriever who loves kids and other pets. Perfect family dog!</p>
+          </div>
+        </div>
+        <div class="carousel-card" tabindex="0" role="button" aria-pressed="false" aria-label="Meet Oliver, the curious tabby cat">
+          <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=400&q=80" alt="Oliver the tabby cat" />
+          <div class="card-content">
+            <h3>Oliver</h3>
+            <p>Curious tabby cat who loves to explore and cuddle. Indoor living preferred.</p>
+          </div>
+        </div>
+        <div class="carousel-card" tabindex="0" role="button" aria-pressed="false" aria-label="Meet Bella, the gentle beagle">
+          <img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=400&q=80" alt="Bella the beagle dog" />
+          <div class="card-content">
+            <h3>Bella</h3>
+            <p>Gentle beagle with a loving heart. Great with children and other pets.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn prev" aria-label="Previous pet" id="prevBtn" tabindex="0">&#10094;</button>
+    <button class="carousel-btn next" aria-label="Next pet" id="nextBtn" tabindex="0">&#10095;</button>
+  </section>
+
+  <section id="contact" aria-label="Contact Section" style="max-width: 900px; margin: 3rem auto 6rem; text-align:center;">
+    <h2>Contact Us</h2>
+    <p style="font-size:1.2rem; font-weight:700; color: #2a9d8f;">
+      Assigned by <a href="https://collegetips.in" target="_blank" rel="noopener noreferrer" style="color:#e76f51; font-weight:900;">collegetips.in</a>
+    </p>
+  </section>
+</main>
+
+<footer>
+  Assigned by collegetips.in
+</footer>
+
+<script>
+  // Navigation active highlighting on scroll
+  const navLinks = document.querySelectorAll('nav ul li a');
+  const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute('href')));
+
+  window.addEventListener('scroll', () => {
+    let scrollPos = window.scrollY + window.innerHeight / 3;
+    sections.forEach((sec, i) => {
+      if(sec.offsetTop <= scrollPos && (sec.offsetTop + sec.offsetHeight) > scrollPos){
+        navLinks.forEach(link => link.classList.remove('active'));
+        navLinks[i].classList.add('active');
+      }
+    });
+  });
+
+  // Volunteer form validation & submission simulation
+  const form = document.getElementById('volunteerForm');
+  const message = document.getElementById('formMessage');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = form.name.value.trim();
+    const city = form.city.value.trim();
+    const role = form.role.value;
+
+    if (name.length < 2) {
+      showMessage('Please enter a valid name.', false);
+      return;
+    }
+    if (city.length < 2) {
+      showMessage('Please enter a valid city.', false);
+      return;
+    }
+    if (!role) {
+      showMessage('Please select a role preference.', false);
+      return;
+    }
+
+    // Successful submission simulation
+    showMessage('Thank you for signing up! We will contact you soon. 🐾', true);
+    form.reset();
+  });
+
+  function showMessage(text, success) {
+    message.textContent = text;
+    message.style.color = success ? '#388e3c' : '#d32f2f';
+  }
+
+  // Impact stories animation on scroll
+  const stories = document.querySelectorAll('.story-card');
+
+  function checkStories() {
+    const triggerBottom = window.innerHeight * 0.85;
+    stories.forEach(story => {
+      const storyTop = story.getBoundingClientRect().top;
+      if(storyTop < triggerBottom) {
+        story.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkStories);
+  window.addEventListener('load', checkStories);
+
+  // Pet Adoption Carousel
+  const track = document.getElementById('carouselTrack');
+  const cards = Array.from(track.children);
+  const btnPrev = document.getElementById('prevBtn');
+  const btnNext = document.getElementById('nextBtn');
+  const cardWidth = cards[0].getBoundingClientRect().width + 28; // card width + margin-right approx
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    // Limit the max scroll so no blank space at end
+    const maxIndex = cards.length - Math.floor(track.parentElement.offsetWidth / cardWidth);
+    const clampedIndex = Math.min(Math.max(currentIndex, 0), maxIndex >= 0 ? maxIndex : 0);
+    track.style.transform = `translateX(-${clampedIndex * cardWidth}px)`;
+  }
+
+  btnPrev.addEventListener('click', () => {
+    currentIndex--;
+    updateCarousel();
+  });
+
+  btnNext.addEventListener('click', () => {
+    currentIndex++;
+    updateCarousel();
+  });
+
+  // Hero buttons scroll to sections
+  document.getElementById('joinBtn').addEventListener('click', () => {
+    document.getElementById('volunteer').scrollIntoView({behavior: 'smooth'});
+  });
+
+  document.getElementById('volunteerBtn').addEventListener('click', () => {
+    document.getElementById('volunteer').scrollIntoView({behavior: 'smooth'});
+  });
+
+  document.getElementById('learnBtn').addEventListener('click', () => {
+    document.getElementById('about').scrollIntoView({behavior: 'smooth'});
+  });
+</script>
+
+</body>
+</html>
+
+```
